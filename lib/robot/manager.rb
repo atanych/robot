@@ -29,7 +29,6 @@ module Robot
     end
 
     private
-
     #
     # Execute robot command
     #

@@ -4,7 +4,7 @@ describe Robot::Engine do
   let!(:engine) { Robot::Engine.new }
 
   describe '#place' do
-    it 'validation rules were delegated to CommandParser' do
+    it 'validation rules were delegated to CommandValidator' do
 
     end
   end

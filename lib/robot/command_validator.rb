@@ -10,12 +10,19 @@ module Robot
     validates :command, inclusion: {in: Robot::Engine::COMMANDS}, allow_nil: true
     validate :validate_params
 
+    #
+    # @param [String] command
+    # @param [Array] params
+    #
     def initialize(command, params)
       self.command = command
       self.params  = params
     end
 
-
+    private
+    #
+    # Common method to validate params (used for command PLACE)
+    #
     def validate_params
       if command == 'PLACE'
         if params.kind_of?(Array)
@@ -28,6 +35,9 @@ module Robot
       end
     end
 
+    #
+    # Validate first and second params (coordinates)
+    #
     def validate_coords
       (0..1).each do |index|
         if params.try(:[], index).try(:to_i) > 5 || params.try(:[], index).try(:to_i) < 0
@@ -36,6 +46,9 @@ module Robot
       end
     end
 
+    #
+    # Validate third param (direction)
+    #
     def validate_direction
       direction = params.try(:[], 2)
       unless Robot::Engine::DIRECTIONS.include?(direction)
