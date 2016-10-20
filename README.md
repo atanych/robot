@@ -8,7 +8,7 @@ The application is a simulation of a toy robot moving on a square tabletop, of d
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'robot'
+gem 'robot', github: 'atanych/robot'
 ```
 
 And then execute:
@@ -27,4 +27,9 @@ require 'robot'
 
 manager = Robot::Manager.new
 puts manager.run_script('robot_scripts/first_script')
+```
+
+If need to prevent not valid robot scenario. Use second param
+```ruby
+puts manager.run_script('robot_scripts/first_script', false)
 ```
