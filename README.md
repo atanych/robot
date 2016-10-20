@@ -29,7 +29,7 @@ manager = Robot::Manager.new
 puts manager.run_script('robot_scripts/first_script')
 ```
 
-If need to prevent not valid robot scenario, Use second param
+If need to prevent not valid robot scenario, use second param
 ```ruby
 puts manager.run_script('robot_scripts/first_script', false)
 ```
