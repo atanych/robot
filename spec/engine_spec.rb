@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Robot::Engine do
   let!(:engine) { Robot::Engine.new }
 
-  describe '#place' do
+  context '#place' do
     it 'validation rules were delegated to CommandValidator' do
 
     end
   end
 
-  describe '#move' do
+  context '#move' do
     context 'when the robot direct to NORTH' do
       context 'and does not fall out' do
         it 'increments vertical position' do
@@ -79,7 +79,7 @@ describe Robot::Engine do
     end
   end
 
-  describe '#left' do
+  context '#left' do
     context 'when the robot directed to WEST' do
       it 'rotates to SOUTH' do
         engine.place(1, 1, 'WEST')
@@ -96,7 +96,7 @@ describe Robot::Engine do
     end
   end
 
-  describe '#right' do
+  context '#right' do
     context 'when the robot directed to WEST' do
       it 'rotates to NORTH' do
         engine.place(1, 1, 'WEST')
@@ -113,7 +113,7 @@ describe Robot::Engine do
     end
   end
 
-  describe '#report' do
+  context '#report' do
     context 'when the robot has state: x=1, y=2, face=NORTH' do
       it 'returns 1,2,NORTH' do
         engine.place(1, 2, 'NORTH')
